@@ -1,0 +1,199 @@
+/* General Body and Font */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #1a1a1a; /* Dark background */
+    color: #f4f4f4; /* Light text */
+}
+
+/* Header */
+header {
+    background-color: #000; /* Black background */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+nav a {
+    color: #ff4d4d; /* Red links */
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #fff; /* White on hover */
+}
+
+/* Hero Section Styles */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #b30000; /* Red background */
+    color: #fff;
+}
+
+/* Logo Styles */
+.company-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Button Styles */
+.hero button {
+    background-color: #fff;
+    color: #b30000; /* Red text */
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero button:hover {
+    background-color: #b30000; /* Red background */
+    color: #fff; /* White text */
+}
+
+/* Content Section */
+.content-section {
+    padding: 40px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Styles */
+.card {
+    background-color: #222; /* Dark background */
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.card h2 {
+    color: #ff4d4d; /* Red headings */
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ddd; /* Light text for paragraphs */
+}
+
+/* CTA Button Styles */
+.cta-button {
+    padding: 10px 20px;
+    background-color: #ff4d4d; /* Red button */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #b30000; /* Darker red */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Button Styles */
+button {
+    background-color: #b30000; /* Red button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ff4d4d; /* Lighter red on hover */
+}
+
+/* Slider Styles */
+.slider {
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.slider .slide {
+    width: 250px;
+    text-align: center;
+    flex-shrink: 0;
+    background-color: #333; /* Dark card background */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.slider .slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.slider .slide p {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.slider .slide strong {
+    font-size: 1.2rem;
+    color: #ff4d4d; /* Red for emphasis */
+}
+
+/* Team Section */
+.team-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.team-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .slider {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .slider .slide {
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 22px; /* Adjusting header font size for mobile */
+    }
+}

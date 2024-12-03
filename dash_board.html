@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esports Financial Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000; /* Black background */
+            color: #fff; /* White text */
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #D32F2F; /* Red header */
+            color: white;
+        }
+        section {
+            margin-top: 30px;
+        }
+        canvas {
+            width: 100%;
+            height: 400px;
+        }
+        h2 {
+            color: #fff; /* White heading text */
+        }
+        .financial-metrics {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .metric {
+            width: 30%;
+            padding: 20px;
+            background-color: #333; /* Dark background for metrics */
+            border-radius: 5px;
+            text-align: center;
+        }
+        .metric h3 {
+            color: #FBC02D; /* Yellow heading text */
+        }
+        .metric p {
+            color: #fff; /* White text for metrics */
+        }
+    </style>
+    <!-- Include Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Financial Dashboard</h1>
+        <p>Key Revenue, Profitability, and Expense Metrics</p>
+    </header>
+
+    <div class="container">
+        <!-- Revenue and Expenses Section -->
+        <section>
+            <h2>Financial Overview: Revenue vs Expenses</h2>
+            <!-- Line chart for Total Revenue vs Total Expenses -->
+            <canvas id="revenueExpensesChart"></canvas>
+            <script>
+                const ctx1 = document.getElementById('revenueExpensesChart').getContext('2d');
+                const revenueExpensesChart = new Chart(ctx1, {
+                    type: 'line',
+                    data: {
+                        labels: Array.from({ length: 20 }, (_, i) => `Year ${i + 1}`),
+                        datasets: [
+                            {
+                                label: 'Total Revenue (in C$)',
+                                data: [
+                                    259250500, 311100600, 373320720, 447984864, 537581837, 645098204,
+                                    774117845, 928941414, 1114729697, 1337675636, 1605210763, 1926252916,
+                                    2311503499, 2773804199, 3328565039, 4793133656, 4793133656, 5751760387,
+                                    6902112465, 8282534958
+                                ],
+                                borderColor: '#D32F2F', /* Red line for revenue */
+                                fill: false,
+                                borderWidth: 2
+                            },
+                            {
+                                label: 'Total Expenses (in C$)',
+                                data: [
+                                    287192883, 250642270, 268844098, 290980524, 375627661, 342130490,
+                                    372542513, 405511894, 441107197, 545652717, 1581233303, 1628040396,
+                                    266297452, 273809514, 354543866, 287172724, 295439821, 303983225,
+                                    312806469, 402435034
+                                ],
+                                borderColor: '#FBC02D', /* Yellow line for expenses */
+                                fill: false,
+                                borderWidth: 2
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: '#fff' /* White text for y-axis labels */
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#fff' /* White text for x-axis labels */
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#fff' /* White text for legend labels */
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+        </section>
+
+        <!-- Profitability Metrics Section -->
+        <section>
+            <h2>Profitability Metrics: Gross Profit & Net Profit</h2>
+            <!-- Bar chart for Gross Profit and Net Profit -->
+            <canvas id="profitabilityChart"></canvas>
+            <script>
+                const ctx2 = document.getElementById('profitabilityChart').getContext('2d');
+                const profitabilityChart = new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: Array.from({ length: 20 }, (_, i) => `Year ${i + 1}`),
+                        datasets: [
+                            {
+                                label: 'Gross Profit (in C$)',
+                                data: [
+                                    -27942383, 60458330, 104476622, 157004340, 161954176, 302967714,
+                                    401575332, 523429520, 673622499, 792022919, 23977460, 298212520,
+                                    2045206047, 2499994685, 2974021173, 4505960932, 4497693835, 5447777162,
+                                    6589305996, 7880099924
+                                ],
+                                backgroundColor: '#D32F2F', /* Red bars for gross profit */
+                                borderColor: '#B71C1C',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Net Profit (in C$)',
+                                data: [
+                                    -20397940, 44134581, 76267934, 114613168, 118226549, 221166431,
+                                    293149992, 382103550, 491744425, 578176731, 17503546, 217695139,
+                                    1493000415, 1824996120, 2171035456, 3289351480, 3283316500, 3976877329,
+                                    4810193377, 5752472944
+                                ],
+                                backgroundColor: '#FBC02D', /* Yellow bars for net profit */
+                                borderColor: '#F57F17',
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: '#fff' /* White text for y-axis labels */
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#fff' /* White text for x-axis labels */
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#fff' /* White text for legend labels */
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+        </section>
+
+        <!-- ROI Metrics Section -->
+        <section>
+            <h2>Return on Investment (ROI)</h2>
+            <!-- Line chart for ROI -->
+            <canvas id="roiChart"></canvas>
+            <script>
+                const ctx3 = document.getElementById('roiChart').getContext('2d');
+                const roiChart = new Chart(ctx3, {
+                    type: 'line',
+                    data: {
+                        labels: Array.from({ length: 20 }, (_, i) => `Year ${i + 1}`),
+                        datasets: [{
+                            label: 'ROI (Net Profit / Investment)',
+                            data: [
+                                -0.07103, 0.17609, 0.28369, 0.39389, 0.31474, 0.64644, 0.78689, 0.94227,
+                                1.11480, 1.05961, 0.01107, 0.13372, 5.60651, 6.66520, 6.12346, 11.45426,
+                                11.11332, 13.08256, 15.37754, 14.29417
+                            ],
+                            borderColor: '#D32F2F', /* Red line for ROI */
+                            fill: false,
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: '#fff' /* White text for y-axis labels */
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#fff' /* White text for x-axis labels */
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#fff' /* White text for legend labels */
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+        </section>
+
+        <!-- Financial Summary Section -->
+        <section class="financial-metrics">
+            <div class="metric">
+                <h3>Total Revenue (in C$)</h3>
+                <p>Year 1: 259,250,500</p>
+                <p>Year 
